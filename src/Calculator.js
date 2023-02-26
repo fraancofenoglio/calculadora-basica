@@ -3,10 +3,10 @@ import Buttons from "./Buttons"
 
 function Calculator() {
   
-  var [value, setValue] = useState("")
-  const [clickEqual, setclickEqual] = useState(false)
-
-  return (
+  var [value, setValue] = useState("");
+  const [clickEqual, setclickEqual] = useState(false);
+  
+ return (
     <div className="App">
       <div className='calculator-container'>
           <div className="display-container">

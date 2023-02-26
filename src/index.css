@@ -165,4 +165,10 @@ input {
     width: 100vw;
     height: auto;
   }
+  .display-container{
+    width: 90%;
+  }
+  input {
+    width: 90%;
+  }
 }

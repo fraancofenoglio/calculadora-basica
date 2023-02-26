@@ -3,11 +3,15 @@ const Buttons = ({children, id, classname, setValue, value, setclickEqual, click
   return (
     <button className={classname} id={id} onClick={() => {
 
-        console.log(clickEqual)
-
         if (id === "=") {
+
             setclickEqual(true)
-            setValue(eval(value))
+            if(/^\d+(\.\d+)?([+\-*/]\d+(\.\d+)?)*$/.test(value)){
+
+                setValue(eval(value.replace(/[*/+-]+$/, "")))
+            } else {
+                setValue("Solo decimales o enteros")
+            }
 
         } else if (id === "AC"){
             setValue("")
@@ -19,6 +23,13 @@ const Buttons = ({children, id, classname, setValue, value, setclickEqual, click
             
             setValue(value += id)
             setclickEqual(false)
+        } else if(id === "."){
+
+            setValue((value += id).replace(/\.+/g, "."))
+
+        } else if(id === "0") {
+            setValue(value += id)
+
         } else {
             if (clickEqual) {
                 setValue("")
